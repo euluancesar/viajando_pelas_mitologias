@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap'); 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Cinzel Decorative", serif;
+    background-color: #f8f1df;
+    color: #001f54;
+    text-align: center;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background-color: #001f54;
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* centraliza o menu */
+    padding: 10px 40px;
+    position: relative;
+    height: 120px;
+}
+
+/* Logo fixa à esquerda */
+.logo {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.logo img {
+    height: 110px;
+    transition: transform 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* MENU CENTRALIZADO */
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+    white-space: nowrap;
+    transition: transform 0.3s ease;
+}
+
+.menu a:hover {
+    transform: scale(1.05);
+}
+
+.menu span {
+    color: white;
+    font-size: 40px;
+}
+
+/* CONTEÚDO */
+.container {
+    padding: 40px;
+}
+
+/* GRID DE FLASHCARDS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* sempre 2 colunas */
+    gap: 50px;
+    width: 95%;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+/* FLASHCARD */
+.flashcard {
+    width: 100%;
+    max-width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    margin: auto;
+    overflow-wrap: break-word;
+    overflow: hidden;
+
+
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.flashcard.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    font-size: 17px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-front {
+    background: #43589c;
+    color: white;
+}
+
+.card-back {
+    background: #fff;
+    color: #333;
+    transform: rotateY(180deg);
+    border: 2px solid #43589c;
+}
+footer {
+            background-color: #001f54;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+/* ==================== RESPONSIVIDADE ==================== */
+
+/* Telas grandes (ajuste suave) */
+@media (max-width: 1400px) {
+    .menu {
+        gap: 30px;
+    }
+    .menu a {
+        font-size: 26px;
+    }
+}
+
+/* Telas médias */
+@media (max-width: 1024px) {
+
+    .navbar {
+        padding: 10px 20px;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .logo {
+        position: static;
+        transform: none;
+        margin-bottom: 10px;
+    }
+
+    .logo img {
+        height: 90px;
+    }
+
+    .menu {
+        position: static;
+        transform: none;
+        gap: 25px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .menu a {
+        font-size: 22px;
+    }
+
+    .menu span {
+        display: none; /* tira os separadores para não poluir */
+    }
+}
+
+/* Telas pequenas (celulares) */
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 15px;
+    }
+
+    .logo img {
+        height: 70px;
+    }
+
+    .menu {
+        gap: 15px;
+    }
+
+    .menu a {
+        font-size: 18px;
+    }
+}
+
+/* Telas bem pequenas (celulares antigos / mini telas) */
+@media (max-width: 400px) {
+
+    .menu a {
+        font-size: 16px;
+    }
+
+    .logo img {
+        height: 60px;
+    }
+}
